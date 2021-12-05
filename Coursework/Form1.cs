@@ -18,13 +18,6 @@ namespace Coursework
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
-            for(int i = 0; i < 500; i++)
-            {
-                Particle particle = new Particle();
-                particle.X = picDisplay.Width / 2;
-                particle.Y = picDisplay.Height / 2;
-                particles.Add(particle);
-            }
         }
 
         public void UpdateState()
@@ -51,6 +44,16 @@ namespace Coursework
                 {
                     particle.X += particle.SpeedX;
                     particle.Y += particle.SpeedY;
+                }
+            }
+            for(int i = 0; i < 10; ++i)
+            {
+                if(particles.Count < 500)
+                {
+                    Particle particle = new Particle();
+                    particle.X = picDisplay.Width / 2;
+                    particle.Y = picDisplay.Height / 2;
+                    particles.Add(particle);
                 }
             }
         }
