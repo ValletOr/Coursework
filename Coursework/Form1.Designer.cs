@@ -29,13 +29,36 @@ namespace Coursework
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.picDisplay = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // picDisplay
+            // 
+            this.picDisplay.Location = new System.Drawing.Point(12, 12);
+            this.picDisplay.Name = "picDisplay";
+            this.picDisplay.Size = new System.Drawing.Size(1024, 720);
+            this.picDisplay.TabIndex = 0;
+            this.picDisplay.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1045, 741);
+            this.Controls.Add(this.picDisplay);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Система частиц";
+            ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox picDisplay;
     }
 }
 
