@@ -33,7 +33,12 @@ namespace Coursework
 
         public void Draw(Graphics g)
         {
-            SolidBrush b = new SolidBrush(Color.Black);
+            float k = Math.Min(1f, Life / 100f);
+            int alpha = (int)(k * 255);
+
+            Color color = Color.FromArgb(alpha, Color.Black);
+
+            SolidBrush b = new SolidBrush(color);
 
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
 
