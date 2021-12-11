@@ -33,13 +33,13 @@ namespace Coursework
                 Y = picDisplay.Height / 2,
                 Rad = 50,
             });
-
+            /*
             emitter.impactPoints.Add(new CounterPoint
             {
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2,
                 Rad = 50,
-            });
+            });*/
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -62,8 +62,7 @@ namespace Coursework
             }
 
             picDisplay.Invalidate();
-            label1.Text = emitter.particles.Count.ToString();
+            CounterLabel.Text = emitter.particles.Count.ToString();
         }
-
     }
 }
