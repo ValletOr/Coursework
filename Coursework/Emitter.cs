@@ -9,9 +9,10 @@ namespace Coursework
 {
     public class Emitter
     {
-        List<Particle> particles = new List<Particle>();
-        public int MousePosX = 0;
-        public int MousePosY = 0;
+        public List<Particle> particles = new List<Particle>();
+        public List<ImpactPoint> impactPoints = new List<ImpactPoint>();
+        public int PosX = 0;
+        public int PosY = 0;
 
         public float GravityX = 0;
         public float GravityY = 1;
@@ -28,8 +29,8 @@ namespace Coursework
                 {
                     particle.Life = 20 + Particle.rand.Next(100);
 
-                    particle.X = MousePosX;
-                    particle.Y = MousePosY;
+                    particle.X = PosX;
+                    particle.Y = PosY;
 
                     float direction = (float)Particle.rand.Next(360);
                     float speed = 1 + (float)Particle.rand.Next(10);
@@ -41,6 +42,11 @@ namespace Coursework
                 }
                 else
                 {
+                    //Взаимодействие гравитонов на частицу
+                    foreach(var point in impactPoints)
+                    {
+                        point.ImpactParticle(particle);
+                    }
                     particle.SpeedX += GravityX;
                     particle.SpeedY += GravityY;
 
@@ -55,8 +61,8 @@ namespace Coursework
                     var particle = new ParticleColorful();
                     particle.Color1 = Color.DarkOrange;
                     particle.Color0 = Color.FromArgb(0, Color.DeepSkyBlue);
-                    particle.X = MousePosX;
-                    particle.Y = MousePosY;
+                    particle.X = PosX;
+                    particle.Y = PosY;
                     particles.Add(particle);
                 }
                 else
@@ -72,6 +78,10 @@ namespace Coursework
             foreach (var particle in particles)
             {
                 particle.Draw(g);
+            }
+            foreach (var point in impactPoints)
+            {
+                point.Render(g);
             }
         }
     }
