@@ -18,42 +18,27 @@ namespace Coursework
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
-            /*
-            emitter1 = new WideEmitter
+            emitter = new WideEmitter
             {
                 Width = picDisplay.Width,
                 GravityY = 0.2f,
-            };*/
-            emitter = new Emitter();
+            };
+            emitters.Add(emitter);
 
-            emitter.impactPoints.Add(new GravityPoint
-            {
-                X = picDisplay.Width /1.5f,
-                Y = picDisplay.Height / 2,
-                Power = 150,
-            });
-
-            emitter.impactPoints.Add(new GravityPoint
-            {
-                X = picDisplay.Width / 4,
-                Y = picDisplay.Height / 2,
-                Power = 150,
-            });
-
-            emitter.impactPoints.Add(new AntiGravityPoint
+            emitter.impactPoints.Add(new PainterPoint
             {
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2,
-                Power = 200,
+                Rad = 50,
             });
-
-            emitters.Add(emitter);
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            emitter.X = e.X;
-            emitter.Y = e.Y;
+            emitter.impactPoints[0].X = e.X;
+            emitter.impactPoints[0].Y = e.Y;
+            //emitter.X = e.X;
+            //emitter.Y = e.Y;
         }
 
         private void timer_Tick(object sender, EventArgs e)

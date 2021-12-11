@@ -43,13 +43,14 @@ namespace Coursework
                 }
                 else
                 {
-                    //Взаимодействие гравитонов на частицу
+                    particle.SpeedX += GravityX;
+                    particle.SpeedY += GravityY;
+
+                    //Взаимодействие импактов на частицу
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
                     }
-                    particle.SpeedX += GravityX;
-                    particle.SpeedY += GravityY;
 
                     particle.X += particle.SpeedX;
                     particle.Y += particle.SpeedY;
@@ -86,7 +87,7 @@ namespace Coursework
         //Создание отдельной частицы
         public virtual Particle CreateParticle()
         {
-            var particle = new ParticleColorful();
+            var particle = new Particle();
             particle.Color1 = ColorFrom;
             particle.Color0 = ColorTo;
 
@@ -97,6 +98,9 @@ namespace Coursework
         public virtual void ResetParticle(Particle particle)
         {
             particle.Life = Particle.rand.Next(LifeMin, LifeMax);
+
+            particle.Color1 = ColorFrom;
+            particle.Color0 = ColorTo;
 
             particle.X = X;
             particle.Y = Y;

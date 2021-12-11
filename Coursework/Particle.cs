@@ -18,6 +18,9 @@ namespace Coursework
         public float SpeedX;
         public float SpeedY;
 
+        public Color Color0;
+        public Color Color1;
+
         public static Random rand = new Random();
         public Particle()
         {
@@ -31,26 +34,6 @@ namespace Coursework
             Life = 20 + rand.Next(100);
         }
 
-        public virtual void Draw(Graphics g)
-        {
-            float k = Math.Min(1f, Life / 100f);
-            int alpha = (int)(k * 255);
-
-            Color color = Color.FromArgb(alpha, Color.Black);
-
-            SolidBrush b = new SolidBrush(color);
-
-            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
-
-            b.Dispose();
-        }
-    }
-
-    public class ParticleColorful : Particle
-    {
-        public Color Color0;
-        public Color Color1;
-
         public static Color MixColor(Color color1, Color color0, float k)
         {
             return Color.FromArgb(
@@ -61,7 +44,7 @@ namespace Coursework
                 );
         }
 
-        public override void Draw(Graphics g)
+        public virtual void Draw(Graphics g)
         {
             float k = Math.Min(1f, Life / 100f);
 
