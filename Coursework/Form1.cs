@@ -22,10 +22,19 @@ namespace Coursework
             {
                 Width = picDisplay.Width,
                 GravityY = 0.2f,
+                ParticlesCount = 1000,
             };
             emitters.Add(emitter);
 
             emitter.impactPoints.Add(new PainterPoint
+            {
+                PointColor = Color.IndianRed,
+                X = picDisplay.Width / 2,
+                Y = picDisplay.Height / 2,
+                Rad = 50,
+            });
+
+            emitter.impactPoints.Add(new CounterPoint
             {
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2,
@@ -37,8 +46,6 @@ namespace Coursework
         {
             emitter.impactPoints[0].X = e.X;
             emitter.impactPoints[0].Y = e.Y;
-            //emitter.X = e.X;
-            //emitter.Y = e.Y;
         }
 
         private void timer_Tick(object sender, EventArgs e)

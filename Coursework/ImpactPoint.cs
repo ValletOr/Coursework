@@ -78,4 +78,42 @@ namespace Coursework
             g.DrawEllipse(new Pen(new SolidBrush(PointColor), 2), X - Rad, Y - Rad, Rad * 2, Rad * 2);
         }
     }
+
+    public class CounterPoint : ImpactPoint
+    {
+        public int Count = 0;
+        public float Rad = 15;
+
+        public override void ImpactParticle(Particle particle)
+        {
+            float gX = X - particle.X;
+            float gY = Y - particle.Y;
+
+            double r = Math.Sqrt(gX * gX + gY * gY);
+            if (r - particle.Radius < Rad)
+            {
+                particle.Life = 0;
+                Count++;
+            }
+        }
+
+        public override void Render(Graphics g)
+        {
+            g.FillEllipse(new SolidBrush(Color.FromArgb(100, Color.Red)), X - Rad, Y - Rad, Rad * 2, Rad * 2);
+            g.DrawEllipse(new Pen(new SolidBrush(Color.White), 2), X - Rad, Y - Rad, Rad * 2, Rad * 2);
+
+            var stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+
+            g.DrawString(
+            $"{Count}",
+            new Font("Verdana", 10),
+            new SolidBrush(Color.White),
+            X,
+            Y,
+            stringFormat
+        );
+        }
+    }
 }

@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace Coursework
 {
+    //Я избавился от класса ColorfulParticle ради удобства работы с перекрашивающим кругом
     public class Particle
     {
         public float X;
