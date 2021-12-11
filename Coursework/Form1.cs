@@ -14,6 +14,9 @@ namespace Coursework
     {
         public List<Emitter> emitters = new List<Emitter>();
         public Emitter emitter;
+        public PainterPoint paint1;
+        public PainterPoint paint2;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,26 +29,41 @@ namespace Coursework
             };
             emitters.Add(emitter);
 
-            emitter.impactPoints.Add(new PainterPoint
+            paint1 = new PainterPoint
             {
                 PointColor = Color.IndianRed,
-                X = picDisplay.Width / 2,
-                Y = picDisplay.Height / 2,
+                X = (picDisplay.Width / 2) - 200,
+                Y = (picDisplay.Height / 2) - 100,
                 Rad = 50,
-            });
-            /*
-            emitter.impactPoints.Add(new CounterPoint
+            };
+
+            paint2 = new PainterPoint
             {
-                X = picDisplay.Width / 2,
-                Y = picDisplay.Height / 2,
+                PointColor = Color.IndianRed,
+                X = (picDisplay.Width / 2) + 200,
+                Y = (picDisplay.Height / 2) - 100,
                 Rad = 50,
-            });*/
+            };
+
+            emitter.impactPoints.Add(paint1);
+            emitter.impactPoints.Add(paint2);
+
+            XBar1.Maximum = picDisplay.Width;
+            YBar1.Maximum = picDisplay.Height;
+            XBar2.Maximum = picDisplay.Width;
+            YBar2.Maximum = picDisplay.Height;
+            XBar1.Value = (int)paint1.X;
+            YBar1.Value = (int)paint1.Y;
+            XBar2.Value = (int)paint2.X;
+            YBar2.Value = (int)paint2.Y;
+            RadBar1.Value = (int)paint1.Rad;
+            RadBar2.Value = (int)paint2.Rad;
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            emitter.impactPoints[0].X = e.X;
-            emitter.impactPoints[0].Y = e.Y;
+            //emitter.impactPoints[0].X = e.X;
+            //emitter.impactPoints[0].Y = e.Y;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -63,6 +81,48 @@ namespace Coursework
 
             picDisplay.Invalidate();
             CounterLabel.Text = emitter.particles.Count.ToString();
+        }
+
+        private void XBar1_Scroll(object sender, EventArgs e)
+        {
+            paint1.X = XBar1.Value;
+        }
+
+        private void YBar1_Scroll(object sender, EventArgs e)
+        {
+            paint1.Y = YBar1.Value;
+        }
+
+        private void RadBar1_Scroll(object sender, EventArgs e)
+        {
+            paint1.Rad = RadBar1.Value;
+        }
+
+        private void XBar2_Scroll(object sender, EventArgs e)
+        {
+            paint2.X = XBar2.Value;
+        }
+
+        private void YBar2_Scroll(object sender, EventArgs e)
+        {
+            paint2.Y = YBar2.Value;
+        }
+
+        private void RadBar2_Scroll(object sender, EventArgs e)
+        {
+            paint2.Rad = RadBar2.Value;
+        }
+
+        private void ColorPick1_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            paint1.PointColor = colorDialog.Color;
+        }
+
+        private void ColorPick2_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            paint2.PointColor = colorDialog.Color;
         }
     }
 }

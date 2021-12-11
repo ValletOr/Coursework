@@ -177,6 +177,7 @@ namespace Coursework
             this.XBar1.Name = "XBar1";
             this.XBar1.Size = new System.Drawing.Size(209, 56);
             this.XBar1.TabIndex = 11;
+            this.XBar1.Scroll += new System.EventHandler(this.XBar1_Scroll);
             // 
             // label7
             // 
@@ -202,6 +203,7 @@ namespace Coursework
             this.YBar1.Name = "YBar1";
             this.YBar1.Size = new System.Drawing.Size(209, 56);
             this.YBar1.TabIndex = 13;
+            this.YBar1.Scroll += new System.EventHandler(this.YBar1_Scroll);
             // 
             // label9
             // 
@@ -215,9 +217,13 @@ namespace Coursework
             // RadBar1
             // 
             this.RadBar1.Location = new System.Drawing.Point(1042, 304);
+            this.RadBar1.Maximum = 100;
+            this.RadBar1.Minimum = 10;
             this.RadBar1.Name = "RadBar1";
             this.RadBar1.Size = new System.Drawing.Size(209, 56);
             this.RadBar1.TabIndex = 15;
+            this.RadBar1.Value = 10;
+            this.RadBar1.Scroll += new System.EventHandler(this.RadBar1_Scroll);
             // 
             // ColorPick1
             // 
@@ -227,6 +233,7 @@ namespace Coursework
             this.ColorPick1.TabIndex = 17;
             this.ColorPick1.Text = "Выбор цвета первого круга";
             this.ColorPick1.UseVisualStyleBackColor = true;
+            this.ColorPick1.Click += new System.EventHandler(this.ColorPick1_Click);
             // 
             // ColorPick2
             // 
@@ -236,6 +243,7 @@ namespace Coursework
             this.ColorPick2.TabIndex = 24;
             this.ColorPick2.Text = "Выбор цвета второго круга";
             this.ColorPick2.UseVisualStyleBackColor = true;
+            this.ColorPick2.Click += new System.EventHandler(this.ColorPick2_Click);
             // 
             // label10
             // 
@@ -249,9 +257,13 @@ namespace Coursework
             // RadBar2
             // 
             this.RadBar2.Location = new System.Drawing.Point(1042, 454);
+            this.RadBar2.Maximum = 100;
+            this.RadBar2.Minimum = 10;
             this.RadBar2.Name = "RadBar2";
             this.RadBar2.Size = new System.Drawing.Size(209, 56);
             this.RadBar2.TabIndex = 22;
+            this.RadBar2.Value = 10;
+            this.RadBar2.Scroll += new System.EventHandler(this.RadBar2_Scroll);
             // 
             // label11
             // 
@@ -268,6 +280,7 @@ namespace Coursework
             this.YBar2.Name = "YBar2";
             this.YBar2.Size = new System.Drawing.Size(209, 56);
             this.YBar2.TabIndex = 20;
+            this.YBar2.Scroll += new System.EventHandler(this.YBar2_Scroll);
             // 
             // label12
             // 
@@ -284,6 +297,7 @@ namespace Coursework
             this.XBar2.Name = "XBar2";
             this.XBar2.Size = new System.Drawing.Size(209, 56);
             this.XBar2.TabIndex = 18;
+            this.XBar2.Scroll += new System.EventHandler(this.XBar2_Scroll);
             // 
             // FirstColorPick
             // 
