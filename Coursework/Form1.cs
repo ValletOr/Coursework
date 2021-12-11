@@ -14,10 +14,19 @@ namespace Coursework
     {
         List<Particle> particles = new List<Particle>();
 
+        private int MousePosX = 0;
+        private int MousePosY = 0;
+
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
+        }
+
+        private void picDisplay_MouseMove(object sender, MouseEventArgs e)
+        {
+            MousePosX = e.X;
+            MousePosY = e.Y;
         }
 
         public void UpdateState()
@@ -29,8 +38,8 @@ namespace Coursework
                 {
                     particle.Life = 20 + Particle.rand.Next(100);
 
-                    particle.X = picDisplay.Width / 2;
-                    particle.Y = picDisplay.Height / 2;
+                    particle.X = MousePosX;
+                    particle.Y = MousePosY;
 
                     float direction = (float)Particle.rand.Next(360);
                     float speed = 1 + (float)Particle.rand.Next(10);
@@ -50,10 +59,16 @@ namespace Coursework
             {
                 if(particles.Count < 500)
                 {
-                    Particle particle = new Particle();
-                    particle.X = picDisplay.Width / 2;
-                    particle.Y = picDisplay.Height / 2;
+                    var particle = new ParticleColorful();
+                    particle.Color1 = Color.DarkOrange;
+                    particle.Color0 = Color.FromArgb(0, Color.DeepSkyBlue);
+                    particle.X = MousePosX;
+                    particle.Y = MousePosY;
                     particles.Add(particle);
+                }
+                else
+                {
+                    break;
                 }
             }
         }
@@ -72,11 +87,12 @@ namespace Coursework
 
             using (var g = Graphics.FromImage(picDisplay.Image))
             {
-                g.Clear(Color.White);
+                g.Clear(Color.Black);
                 Render(g);
             }
 
             picDisplay.Invalidate();
         }
+
     }
 }

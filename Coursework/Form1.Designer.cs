@@ -43,6 +43,7 @@ namespace Coursework
             this.picDisplay.Size = new System.Drawing.Size(1024, 720);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
+            this.picDisplay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseMove);
             // 
             // timer
             // 

@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Coursework
 {
-    class Particle
+    public class Particle
     {
         public float X;
         public float Y;
@@ -31,7 +31,7 @@ namespace Coursework
             Life = 20 + rand.Next(100);
         }
 
-        public void Draw(Graphics g)
+        public virtual void Draw(Graphics g)
         {
             float k = Math.Min(1f, Life / 100f);
             int alpha = (int)(k * 255);
@@ -39,6 +39,34 @@ namespace Coursework
             Color color = Color.FromArgb(alpha, Color.Black);
 
             SolidBrush b = new SolidBrush(color);
+
+            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
+
+            b.Dispose();
+        }
+    }
+
+    public class ParticleColorful : Particle
+    {
+        public Color Color0;
+        public Color Color1;
+
+        public static Color MixColor(Color color1, Color color0, float k)
+        {
+            return Color.FromArgb(
+                (int)(color0.A * k + color1.A * (1 - k)),
+                (int)(color0.R * k + color1.R * (1 - k)),
+                (int)(color0.G * k + color1.G * (1 - k)),
+                (int)(color0.B * k + color1.B * (1 - k))
+                );
+        }
+
+        public override void Draw(Graphics g)
+        {
+            float k = Math.Min(1f, Life / 100f);
+
+            var color = MixColor(Color0, Color1, k);
+            var b = new SolidBrush(color);
 
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
 
