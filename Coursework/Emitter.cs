@@ -13,6 +13,11 @@ namespace Coursework
         public int MousePosX = 0;
         public int MousePosY = 0;
 
+        public float GravityX = 0;
+        public float GravityY = 1;
+
+        public int ParticlesCount = 500;
+
         //Обновляем состояние частиц
         public void UpdateState()
         {
@@ -36,13 +41,16 @@ namespace Coursework
                 }
                 else
                 {
+                    particle.SpeedX += GravityX;
+                    particle.SpeedY += GravityY;
+
                     particle.X += particle.SpeedX;
                     particle.Y += particle.SpeedY;
                 }
             }
             for (int i = 0; i < 10; ++i)
             {
-                if (particles.Count < 500)
+                if (particles.Count < ParticlesCount)
                 {
                     var particle = new ParticleColorful();
                     particle.Color1 = Color.DarkOrange;
