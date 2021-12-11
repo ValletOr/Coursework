@@ -25,7 +25,7 @@ namespace Coursework
             {
                 Width = picDisplay.Width,
                 GravityY = 0.2f,
-                ParticlesCount = 1000,
+                ParticlesPerTick = 2,
             };
             emitters.Add(emitter);
 
@@ -58,6 +58,9 @@ namespace Coursework
             YBar2.Value = (int)paint2.Y;
             RadBar1.Value = (int)paint1.Rad;
             RadBar2.Value = (int)paint2.Rad;
+            PPTBar.Value = emitter.ParticlesPerTick;
+            LTBar.Value = emitter.LifeMax;
+            SBar.Value = emitter.SpeedMax;
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -80,7 +83,21 @@ namespace Coursework
             }
 
             picDisplay.Invalidate();
+            LabelUpdate();
+        }
+
+        public void LabelUpdate()
+        {
             CounterLabel.Text = emitter.particles.Count.ToString();
+            PPTLabel.Text = PPTBar.Value.ToString();
+            LTLabel.Text = LTBar.Value.ToString();
+            SLabel.Text = SBar.Value.ToString();
+            XLabel1.Text = XBar1.Value.ToString();
+            YLabel1.Text = YBar1.Value.ToString();
+            RadLabel1.Text = RadBar1.Value.ToString();
+            XLabel2.Text = XBar2.Value.ToString();
+            YLabel2.Text = YBar2.Value.ToString();
+            RadLabel2.Text = RadBar2.Value.ToString();
         }
 
         private void XBar1_Scroll(object sender, EventArgs e)
@@ -123,6 +140,33 @@ namespace Coursework
         {
             colorDialog.ShowDialog();
             paint2.PointColor = colorDialog.Color;
+        }
+
+        private void PPTBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.ParticlesPerTick = PPTBar.Value;
+        }
+
+        private void LTBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.LifeMax = LTBar.Value;
+        }
+
+        private void SBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.SpeedMax = SBar.Value;
+        }
+
+        private void FirstColorPick_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            emitter.ColorFrom = colorDialog.Color;
+        }
+
+        private void SecondColorPick_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            emitter.ColorTo = Color.FromArgb(0, colorDialog.Color);
         }
     }
 }

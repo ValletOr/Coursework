@@ -29,23 +29,29 @@ namespace Coursework
         public float GravityX = 0;
         public float GravityY = 1;
 
-        public int ParticlesCount = 500;
+        public int ParticlesPerTick = 1;
 
         //Обновляем состояние частиц
         public void UpdateState()
         {
+            int particlesToCreate = ParticlesPerTick;
+
             foreach (var particle in particles)
             {
-                particle.Life--;
-                if (particle.Life < 0)
+                if (particle.Life <= 0)
                 {
-                    ResetParticle(particle);
+                    if (particlesToCreate > 0)
+                    {
+                        particlesToCreate -= 1;
+                        ResetParticle(particle);
+                    }
                 }
                 else
                 {
                     particle.SpeedX += GravityX;
                     particle.SpeedY += GravityY;
 
+                    particle.Life -= 1;
                     //Взаимодействие импактов на частицу
                     foreach (var point in impactPoints)
                     {
@@ -56,18 +62,12 @@ namespace Coursework
                     particle.Y += particle.SpeedY;
                 }
             }
-            for (int i = 0; i < 10; ++i)
+            while (particlesToCreate >= 1)
             {
-                if (particles.Count < ParticlesCount)
-                {
-                    var particle = CreateParticle();
-                    ResetParticle(particle);
-                    particles.Add(particle);
-                }
-                else
-                {
-                    break;
-                }
+                particlesToCreate -= 1;
+                var particle = CreateParticle();
+                ResetParticle(particle);
+                particles.Add(particle);
             }
         }
 
