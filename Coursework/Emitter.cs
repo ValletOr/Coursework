@@ -11,8 +11,20 @@ namespace Coursework
     {
         public List<Particle> particles = new List<Particle>();
         public List<ImpactPoint> impactPoints = new List<ImpactPoint>();
-        public int PosX = 0;
-        public int PosY = 0;
+        public int X = 0;
+        public int Y = 0;
+
+        public int Direction = 0;
+        public int Spreading = 360;
+        public int SpeedMin = 1;
+        public int SpeedMax = 10;
+        public int RadiusMin = 2;
+        public int RadiusMax = 10;
+        public int LifeMin = 20;
+        public int LifeMax = 100;
+
+        public Color ColorFrom = Color.Aqua;
+        public Color ColorTo = Color.FromArgb(0, Color.Magenta);
 
         public float GravityX = 0;
         public float GravityY = 1;
@@ -32,7 +44,7 @@ namespace Coursework
                 else
                 {
                     //Взаимодействие гравитонов на частицу
-                    foreach(var point in impactPoints)
+                    foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
                     }
@@ -47,9 +59,7 @@ namespace Coursework
             {
                 if (particles.Count < ParticlesCount)
                 {
-                    var particle = new ParticleColorful();
-                    particle.Color1 = Color.DarkOrange;
-                    particle.Color0 = Color.FromArgb(0, Color.DeepSkyBlue);
+                    var particle = CreateParticle();
                     ResetParticle(particle);
                     particles.Add(particle);
                 }
@@ -72,22 +82,34 @@ namespace Coursework
                 point.Render(g);
             }
         }
-        
+
+        //Создание отдельной частицы
+        public virtual Particle CreateParticle()
+        {
+            var particle = new ParticleColorful();
+            particle.Color1 = ColorFrom;
+            particle.Color0 = ColorTo;
+
+            return particle;
+        }
+
         //Создание и пересоздание частиц
         public virtual void ResetParticle(Particle particle)
         {
-            particle.Life = 20 + Particle.rand.Next(100);
+            particle.Life = Particle.rand.Next(LifeMin, LifeMax);
 
-            particle.X = PosX;
-            particle.Y = PosY;
+            particle.X = X;
+            particle.Y = Y;
 
-            float direction = (float)Particle.rand.Next(360);
-            float speed = 1 + (float)Particle.rand.Next(10);
+            float direction = Direction
+                + (float)Particle.rand.Next(Spreading)
+                - Spreading / 2;
+            int speed = Particle.rand.Next(SpeedMin, SpeedMax);
 
             particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
-            particle.Radius = 1 + Particle.rand.Next(10);
+            particle.Radius = Particle.rand.Next(RadiusMin, RadiusMax);
         }
     }
 
