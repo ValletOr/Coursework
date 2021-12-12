@@ -52,7 +52,7 @@ namespace Coursework
                     particle.SpeedY += GravityY;
 
                     particle.Life -= 1;
-                    //Взаимодействие импактов на частицу
+                    //Воздействие импактов на частицу
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);

@@ -31,7 +31,7 @@ namespace Coursework
 
             paint1 = new PainterPoint
             {
-                PointColor = Color.IndianRed,
+                PointColor = Color.White,
                 X = (picDisplay.Width / 2) - 200,
                 Y = (picDisplay.Height / 2) - 100,
                 Rad = 50,
@@ -39,7 +39,7 @@ namespace Coursework
 
             paint2 = new PainterPoint
             {
-                PointColor = Color.IndianRed,
+                PointColor = Color.Red,
                 X = (picDisplay.Width / 2) + 200,
                 Y = (picDisplay.Height / 2) - 100,
                 Rad = 50,
@@ -60,7 +60,7 @@ namespace Coursework
             RadBar2.Value = (int)paint2.Rad;
             PPTBar.Value = emitter.ParticlesPerTick;
             LTBar.Value = emitter.LifeMax;
-            SBar.Value = emitter.SpeedMax;
+            GBar.Value = (int)(emitter.GravityY * 10);
             CRadBar.Value = 50;
         }
 
@@ -89,10 +89,10 @@ namespace Coursework
 
         public void LabelUpdate()
         {
-            CounterLabel.Text = emitter.particles.Count.ToString();
+            CounterLabel.Text = emitter.particles.Count(particle => particle.Life > 0).ToString();
             PPTLabel.Text = PPTBar.Value.ToString();
             LTLabel.Text = LTBar.Value.ToString();
-            SLabel.Text = SBar.Value.ToString();
+            GLabel.Text = (GBar.Value / 10f).ToString();
             XLabel1.Text = XBar1.Value.ToString();
             YLabel1.Text = YBar1.Value.ToString();
             RadLabel1.Text = RadBar1.Value.ToString();
@@ -154,9 +154,9 @@ namespace Coursework
             emitter.LifeMax = LTBar.Value;
         }
 
-        private void SBar_Scroll(object sender, EventArgs e)
+        private void GBar_Scroll(object sender, EventArgs e)
         {
-            emitter.SpeedMax = SBar.Value;
+            emitter.GravityY = (GBar.Value / 10f);
         }
 
         private void FirstColorPick_Click(object sender, EventArgs e)
@@ -179,7 +179,7 @@ namespace Coursework
                 {
                     X = e.X,
                     Y = e.Y,
-                    Rad = 50,
+                    Rad = CRadBar.Value,
                 });
             }
             else if (e.Button == MouseButtons.Right)

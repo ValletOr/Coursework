@@ -40,7 +40,7 @@ namespace Coursework
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LTBar = new System.Windows.Forms.TrackBar();
-            this.SBar = new System.Windows.Forms.TrackBar();
+            this.GBar = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.XBar1 = new System.Windows.Forms.TrackBar();
@@ -68,7 +68,7 @@ namespace Coursework
             this.XLabel2 = new System.Windows.Forms.Label();
             this.YLabel2 = new System.Windows.Forms.Label();
             this.RadLabel2 = new System.Windows.Forms.Label();
-            this.SLabel = new System.Windows.Forms.Label();
+            this.GLabel = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.CRadLabel = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PPTBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LTBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadBar1)).BeginInit();
@@ -153,9 +153,9 @@ namespace Coursework
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1283, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(190, 19);
+            this.label4.Size = new System.Drawing.Size(221, 19);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Продолжительность жизни:";
+            this.label4.Text = "Max Продолжительность жизни:";
             // 
             // LTBar
             // 
@@ -168,25 +168,25 @@ namespace Coursework
             this.LTBar.Value = 20;
             this.LTBar.Scroll += new System.EventHandler(this.LTBar_Scroll);
             // 
-            // SBar
+            // GBar
             // 
-            this.SBar.Location = new System.Drawing.Point(1042, 140);
-            this.SBar.Maximum = 50;
-            this.SBar.Minimum = 1;
-            this.SBar.Name = "SBar";
-            this.SBar.Size = new System.Drawing.Size(209, 56);
-            this.SBar.TabIndex = 9;
-            this.SBar.Value = 1;
-            this.SBar.Scroll += new System.EventHandler(this.SBar_Scroll);
+            this.GBar.Location = new System.Drawing.Point(1042, 140);
+            this.GBar.Maximum = 50;
+            this.GBar.Minimum = 1;
+            this.GBar.Name = "GBar";
+            this.GBar.Size = new System.Drawing.Size(209, 56);
+            this.GBar.TabIndex = 9;
+            this.GBar.Value = 1;
+            this.GBar.Scroll += new System.EventHandler(this.GBar_Scroll);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1042, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 19);
+            this.label5.Size = new System.Drawing.Size(86, 19);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Скорость:";
+            this.label5.Text = "Гравитация:";
             // 
             // label6
             // 
@@ -357,7 +357,7 @@ namespace Coursework
             // LTLabel
             // 
             this.LTLabel.AutoSize = true;
-            this.LTLabel.Location = new System.Drawing.Point(1479, 59);
+            this.LTLabel.Location = new System.Drawing.Point(1499, 59);
             this.LTLabel.Name = "LTLabel";
             this.LTLabel.Size = new System.Drawing.Size(33, 19);
             this.LTLabel.TabIndex = 28;
@@ -417,14 +417,14 @@ namespace Coursework
             this.RadLabel2.TabIndex = 34;
             this.RadLabel2.Text = "###";
             // 
-            // SLabel
+            // GLabel
             // 
-            this.SLabel.AutoSize = true;
-            this.SLabel.Location = new System.Drawing.Point(1120, 118);
-            this.SLabel.Name = "SLabel";
-            this.SLabel.Size = new System.Drawing.Size(33, 19);
-            this.SLabel.TabIndex = 35;
-            this.SLabel.Text = "###";
+            this.GLabel.AutoSize = true;
+            this.GLabel.Location = new System.Drawing.Point(1129, 118);
+            this.GLabel.Name = "GLabel";
+            this.GLabel.Size = new System.Drawing.Size(33, 19);
+            this.GLabel.TabIndex = 35;
+            this.GLabel.Text = "###";
             // 
             // label13
             // 
@@ -467,12 +467,12 @@ namespace Coursework
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1520, 741);
+            this.ClientSize = new System.Drawing.Size(1539, 741);
             this.Controls.Add(this.CRadBar);
             this.Controls.Add(this.CRadLabel);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.SLabel);
+            this.Controls.Add(this.GLabel);
             this.Controls.Add(this.RadLabel2);
             this.Controls.Add(this.YLabel2);
             this.Controls.Add(this.XLabel2);
@@ -498,7 +498,7 @@ namespace Coursework
             this.Controls.Add(this.label7);
             this.Controls.Add(this.XBar1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.SBar);
+            this.Controls.Add(this.GBar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LTBar);
             this.Controls.Add(this.label4);
@@ -516,7 +516,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PPTBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LTBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.YBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RadBar1)).EndInit();
@@ -540,7 +540,7 @@ namespace Coursework
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar LTBar;
-        private System.Windows.Forms.TrackBar SBar;
+        private System.Windows.Forms.TrackBar GBar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar XBar1;
@@ -568,7 +568,7 @@ namespace Coursework
         private System.Windows.Forms.Label XLabel2;
         private System.Windows.Forms.Label YLabel2;
         private System.Windows.Forms.Label RadLabel2;
-        private System.Windows.Forms.Label SLabel;
+        private System.Windows.Forms.Label GLabel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label CRadLabel;
