@@ -61,6 +61,7 @@ namespace Coursework
             PPTBar.Value = emitter.ParticlesPerTick;
             LTBar.Value = emitter.LifeMax;
             SBar.Value = emitter.SpeedMax;
+            CRadBar.Value = 50;
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -98,6 +99,7 @@ namespace Coursework
             XLabel2.Text = XBar2.Value.ToString();
             YLabel2.Text = YBar2.Value.ToString();
             RadLabel2.Text = RadBar2.Value.ToString();
+            CRadLabel.Text = CRadBar.Value.ToString();
         }
 
         private void XBar1_Scroll(object sender, EventArgs e)
@@ -167,6 +169,36 @@ namespace Coursework
         {
             colorDialog.ShowDialog();
             emitter.ColorTo = Color.FromArgb(0, colorDialog.Color);
+        }
+
+        private void picDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                emitter.impactPoints.Add(new CounterPoint
+                {
+                    X = e.X,
+                    Y = e.Y,
+                    Rad = 50,
+                });
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                foreach(var point in emitter.impactPoints.ToArray())
+                {
+                    if(point is CounterPoint)
+                    {
+                        CounterPoint cpoint = point as CounterPoint;
+                        float gX = cpoint.X - e.X;
+                        float gY = cpoint.Y - e.Y;
+                        double r = Math.Sqrt((gX * gX) + (gY * gY));
+                        if(r <= cpoint.Rad)
+                        {
+                            emitter.impactPoints.Remove(point);
+                        }
+                    }
+                }
+            }
         }
     }
 }

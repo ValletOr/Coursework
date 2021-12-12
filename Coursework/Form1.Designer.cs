@@ -69,6 +69,10 @@ namespace Coursework
             this.YLabel2 = new System.Windows.Forms.Label();
             this.RadLabel2 = new System.Windows.Forms.Label();
             this.SLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CRadLabel = new System.Windows.Forms.Label();
+            this.CRadBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PPTBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LTBar)).BeginInit();
@@ -79,6 +83,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.RadBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CRadBar)).BeginInit();
             this.SuspendLayout();
             // 
             // picDisplay
@@ -88,6 +93,7 @@ namespace Coursework
             this.picDisplay.Size = new System.Drawing.Size(1024, 720);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
+            this.picDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseClick);
             this.picDisplay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseMove);
             // 
             // timer
@@ -237,7 +243,7 @@ namespace Coursework
             // RadBar1
             // 
             this.RadBar1.Location = new System.Drawing.Point(1042, 304);
-            this.RadBar1.Maximum = 100;
+            this.RadBar1.Maximum = 200;
             this.RadBar1.Minimum = 10;
             this.RadBar1.Name = "RadBar1";
             this.RadBar1.Size = new System.Drawing.Size(209, 56);
@@ -277,7 +283,7 @@ namespace Coursework
             // RadBar2
             // 
             this.RadBar2.Location = new System.Drawing.Point(1042, 454);
-            this.RadBar2.Maximum = 100;
+            this.RadBar2.Maximum = 200;
             this.RadBar2.Minimum = 10;
             this.RadBar2.Name = "RadBar2";
             this.RadBar2.Size = new System.Drawing.Size(209, 56);
@@ -420,11 +426,52 @@ namespace Coursework
             this.SLabel.TabIndex = 35;
             this.SLabel.Text = "###";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1038, 528);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(226, 19);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Управление кругами счётчиками:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1038, 547);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(195, 19);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "Радиус создаваемых кругов:";
+            // 
+            // CRadLabel
+            // 
+            this.CRadLabel.AutoSize = true;
+            this.CRadLabel.Location = new System.Drawing.Point(1239, 547);
+            this.CRadLabel.Name = "CRadLabel";
+            this.CRadLabel.Size = new System.Drawing.Size(33, 19);
+            this.CRadLabel.TabIndex = 38;
+            this.CRadLabel.Text = "###";
+            // 
+            // CRadBar
+            // 
+            this.CRadBar.Location = new System.Drawing.Point(1046, 569);
+            this.CRadBar.Maximum = 200;
+            this.CRadBar.Minimum = 2;
+            this.CRadBar.Name = "CRadBar";
+            this.CRadBar.Size = new System.Drawing.Size(209, 56);
+            this.CRadBar.TabIndex = 39;
+            this.CRadBar.Value = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1520, 741);
+            this.Controls.Add(this.CRadBar);
+            this.Controls.Add(this.CRadLabel);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.SLabel);
             this.Controls.Add(this.RadLabel2);
             this.Controls.Add(this.YLabel2);
@@ -476,6 +523,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.RadBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.YBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CRadBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,6 +569,10 @@ namespace Coursework
         private System.Windows.Forms.Label YLabel2;
         private System.Windows.Forms.Label RadLabel2;
         private System.Windows.Forms.Label SLabel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label CRadLabel;
+        private System.Windows.Forms.TrackBar CRadBar;
     }
 }
 
