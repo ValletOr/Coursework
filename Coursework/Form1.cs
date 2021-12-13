@@ -48,21 +48,7 @@ namespace Coursework
             emitter.impactPoints.Add(paint1);
             emitter.impactPoints.Add(paint2);
 
-            XBar1.Maximum = picDisplay.Width;
-            YBar1.Maximum = picDisplay.Height;
-            XBar2.Maximum = picDisplay.Width;
-            YBar2.Maximum = picDisplay.Height;
-            XBar1.Value = (int)paint1.X;
-            YBar1.Value = (int)paint1.Y;
-            XBar2.Value = (int)paint2.X;
-            YBar2.Value = (int)paint2.Y;
-            RadBar1.Value = (int)paint1.Rad;
-            RadBar2.Value = (int)paint2.Rad;
-            PPTBar.Value = emitter.ParticlesPerTick;
-            LTBar.Value = emitter.LifeMax;
-            MinLTBar.Value = emitter.LifeMin;
-            GBar.Value = (int)(emitter.GravityY * 10);
-            CRadBar.Value = 50;
+            ElementsStartPos();
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -85,10 +71,35 @@ namespace Coursework
             }
 
             picDisplay.Invalidate();
-            LabelUpdate();
+            ElementsUpdate();
         }
 
-        public void LabelUpdate()
+        //Задание начальных значений формы
+        public void ElementsStartPos()
+        {
+            XBar1.Maximum = picDisplay.Width;
+            YBar1.Maximum = picDisplay.Height;
+            XBar2.Maximum = picDisplay.Width;
+            YBar2.Maximum = picDisplay.Height;
+            XBar1.Value = (int)paint1.X;
+            YBar1.Value = (int)paint1.Y;
+            XBar2.Value = (int)paint2.X;
+            YBar2.Value = (int)paint2.Y;
+            RadBar1.Value = (int)paint1.Rad;
+            RadBar2.Value = (int)paint2.Rad;
+            PPTBar.Value = emitter.ParticlesPerTick;
+            LTBar.Value = emitter.LifeMax;
+            MinLTBar.Value = emitter.LifeMin;
+            GBar.Value = (int)(emitter.GravityY * 10);
+            CRadBar.Value = 50;
+            FirstColorPick.BackColor = emitter.ColorFrom;
+            SecondColorPick.BackColor = Color.FromArgb(255, emitter.ColorTo);
+            ColorPick1.BackColor = paint1.PointColor;
+            ColorPick2.BackColor = paint2.PointColor;
+        }
+
+        //Обновление значений элементов(Лейблы и т.п.)
+        public void ElementsUpdate()
         {
             CounterLabel.Text = emitter.particles.Count(particle => particle.Life > 0).ToString();
             PPTLabel.Text = PPTBar.Value.ToString();
@@ -104,6 +115,8 @@ namespace Coursework
             CRadLabel.Text = CRadBar.Value.ToString();
         }
 
+        //=============================================================
+        //Много методов-событий от элементов формы.
         private void XBar1_Scroll(object sender, EventArgs e)
         {
             paint1.X = XBar1.Value;
@@ -138,24 +151,19 @@ namespace Coursework
         {
             colorDialog.ShowDialog();
             paint1.PointColor = colorDialog.Color;
+            ColorPick1.BackColor = paint1.PointColor;
         }
 
         private void ColorPick2_Click(object sender, EventArgs e)
         {
             colorDialog.ShowDialog();
             paint2.PointColor = colorDialog.Color;
+            ColorPick2.BackColor = paint2.PointColor;
         }
 
         private void PPTBar_Scroll(object sender, EventArgs e)
         {
             emitter.ParticlesPerTick = PPTBar.Value;
-        }
-
-        private void LTBar_Scroll(object sender, EventArgs e)
-        {
-            emitter.LifeMax = LTBar.Value;
-            MinLTBar.Maximum = LTBar.Value;
-            LTBar.Minimum = MinLTBar.Value;
         }
 
         private void GBar_Scroll(object sender, EventArgs e)
@@ -167,14 +175,33 @@ namespace Coursework
         {
             colorDialog.ShowDialog();
             emitter.ColorFrom = colorDialog.Color;
+            FirstColorPick.BackColor = emitter.ColorFrom;
         }
 
         private void SecondColorPick_Click(object sender, EventArgs e)
         {
             colorDialog.ShowDialog();
             emitter.ColorTo = Color.FromArgb(0, colorDialog.Color);
+            SecondColorPick.BackColor = Color.FromArgb(255, emitter.ColorTo);
         }
 
+        //Два метода - события для ползунков, определяющих время жизни частиц.
+        //Они взаимозависимы, поэтому изменяют максимальное и минимальное значения друг-друга при каждом вызове
+        private void LTBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.LifeMax = LTBar.Value;
+            MinLTBar.Maximum = LTBar.Value;
+            LTBar.Minimum = MinLTBar.Value;
+        }
+
+        private void MinLTBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.LifeMin = MinLTBar.Value;
+            MinLTBar.Maximum = LTBar.Value;
+            LTBar.Minimum = MinLTBar.Value;
+        }
+
+        //Создание и удаление кругов-счётчиков
         private void picDisplay_MouseClick(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Left)
@@ -190,26 +217,23 @@ namespace Coursework
             {
                 foreach(var point in emitter.impactPoints.ToArray())
                 {
+                    //Если impactpoint - счётчик
                     if(point is CounterPoint)
                     {
+                        //то проверяем на пересечение с местом клика мышью
                         CounterPoint cpoint = point as CounterPoint;
                         float gX = cpoint.X - e.X;
                         float gY = cpoint.Y - e.Y;
                         double r = Math.Sqrt((gX * gX) + (gY * gY));
                         if(r <= cpoint.Rad)
                         {
+                            //и при пересечении удаляем счётчик.
                             emitter.impactPoints.Remove(point);
                         }
                     }
                 }
             }
         }
-
-        private void MinLTBar_Scroll(object sender, EventArgs e)
-        {
-            emitter.LifeMin = MinLTBar.Value;
-            MinLTBar.Maximum = LTBar.Value;
-            LTBar.Minimum = MinLTBar.Value;
-        }
+        //=================================================================
     }
 }

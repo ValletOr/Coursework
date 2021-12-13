@@ -136,6 +136,7 @@ namespace Coursework
             // PPTBar
             // 
             this.PPTBar.Location = new System.Drawing.Point(1042, 81);
+            this.PPTBar.Maximum = 25;
             this.PPTBar.Minimum = 1;
             this.PPTBar.Name = "PPTBar";
             this.PPTBar.Size = new System.Drawing.Size(209, 56);
@@ -247,7 +248,7 @@ namespace Coursework
             // RadBar1
             // 
             this.RadBar1.Location = new System.Drawing.Point(1042, 410);
-            this.RadBar1.Maximum = 200;
+            this.RadBar1.Maximum = 300;
             this.RadBar1.Minimum = 10;
             this.RadBar1.Name = "RadBar1";
             this.RadBar1.Size = new System.Drawing.Size(209, 56);
@@ -287,7 +288,7 @@ namespace Coursework
             // RadBar2
             // 
             this.RadBar2.Location = new System.Drawing.Point(1042, 560);
-            this.RadBar2.Maximum = 200;
+            this.RadBar2.Maximum = 300;
             this.RadBar2.Minimum = 10;
             this.RadBar2.Name = "RadBar2";
             this.RadBar2.Size = new System.Drawing.Size(209, 56);
@@ -336,7 +337,7 @@ namespace Coursework
             this.FirstColorPick.Size = new System.Drawing.Size(200, 78);
             this.FirstColorPick.TabIndex = 25;
             this.FirstColorPick.Text = "Выбор первого цвета";
-            this.FirstColorPick.UseVisualStyleBackColor = true;
+            this.FirstColorPick.UseVisualStyleBackColor = false;
             this.FirstColorPick.Click += new System.EventHandler(this.FirstColorPick_Click);
             // 
             // SecondColorPick
@@ -460,12 +461,12 @@ namespace Coursework
             // CRadBar
             // 
             this.CRadBar.Location = new System.Drawing.Point(1046, 675);
-            this.CRadBar.Maximum = 200;
-            this.CRadBar.Minimum = 2;
+            this.CRadBar.Maximum = 300;
+            this.CRadBar.Minimum = 10;
             this.CRadBar.Name = "CRadBar";
             this.CRadBar.Size = new System.Drawing.Size(209, 56);
             this.CRadBar.TabIndex = 39;
-            this.CRadBar.Value = 2;
+            this.CRadBar.Value = 10;
             // 
             // MinLTLabel
             // 
