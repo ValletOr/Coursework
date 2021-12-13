@@ -11,6 +11,8 @@ namespace Coursework
     {
         public List<Particle> particles = new List<Particle>();
         public List<ImpactPoint> impactPoints = new List<ImpactPoint>();
+
+        //Координаты и другие хар-ки эмиттера
         public int X = 0;
         public int Y = 0;
 
@@ -71,7 +73,7 @@ namespace Coursework
             }
         }
 
-        //Отрисовываем частицы
+        //Отрисовываем частицы и impactpoint'ы
         public void Render(Graphics g)
         {
             foreach (var particle in particles)
@@ -94,7 +96,7 @@ namespace Coursework
             return particle;
         }
 
-        //Создание и пересоздание частиц
+        //Переустановка характеристик частицы
         public virtual void ResetParticle(Particle particle)
         {
             particle.Life = Particle.rand.Next(LifeMin, LifeMax);

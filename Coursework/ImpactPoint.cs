@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace Coursework
 {
+    //Оновной класс - точка взаимодействия
     public abstract class ImpactPoint
     {
         public float X;
@@ -20,6 +21,8 @@ namespace Coursework
         }
     }
 
+    //============================================================================
+    //Гравитон и антиГравитон, я их не использую, но оставил, на всякий случай
     public class GravityPoint : ImpactPoint
     {
         public float Power = 100;
@@ -54,7 +57,9 @@ namespace Coursework
             g.FillEllipse(new SolidBrush(Color.Blue), X - 5, Y - 5, 10, 10);
         }
     }
-    
+    //==============================================================================
+
+    //Раскрашивающий частицы круг
     public class PainterPoint : ImpactPoint
     {
         public Color PointColor = Color.White;
@@ -79,6 +84,7 @@ namespace Coursework
         }
     }
 
+    //Круг счётчик
     public class CounterPoint : ImpactPoint
     {
         public int Count = 0;

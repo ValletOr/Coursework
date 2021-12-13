@@ -21,14 +21,17 @@ namespace Coursework
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
+            //Сам эмиттер, я использую только его широкую версию
             emitter = new WideEmitter
             {
                 Width = picDisplay.Width,
                 GravityY = 0.2f,
                 ParticlesPerTick = 2,
             };
+            //Добавляю эмиттер в список эмиттеров, для того что бы он обновлялся
             emitters.Add(emitter);
-
+            
+            //Два раскрашивающих круга
             paint1 = new PainterPoint
             {
                 PointColor = Color.White,
@@ -44,28 +47,25 @@ namespace Coursework
                 Y = (picDisplay.Height / 2) - 100,
                 Rad = 50,
             };
-
+            
+            //Добавляю раск. круги в список impactpoint'ов
             emitter.impactPoints.Add(paint1);
             emitter.impactPoints.Add(paint2);
 
             ElementsStartPos();
         }
 
-        private void picDisplay_MouseMove(object sender, MouseEventArgs e)
-        {
-            //emitter.impactPoints[0].X = e.X;
-            //emitter.impactPoints[0].Y = e.Y;
-        }
-
         private void timer_Tick(object sender, EventArgs e)
         {
             foreach(var emitter in emitters)
             {
+                //Обновление состояния всех элементов эмиттера
                 emitter.UpdateState();
 
                 using (var g = Graphics.FromImage(picDisplay.Image))
                 {
                     g.Clear(Color.Black);
+                    //Рендер всех элементов эмиттера
                     emitter.Render(g);
                 }
             }
