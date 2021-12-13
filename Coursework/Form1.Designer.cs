@@ -73,6 +73,9 @@ namespace Coursework
             this.label14 = new System.Windows.Forms.Label();
             this.CRadLabel = new System.Windows.Forms.Label();
             this.CRadBar = new System.Windows.Forms.TrackBar();
+            this.MinLTLabel = new System.Windows.Forms.Label();
+            this.MinLTBar = new System.Windows.Forms.TrackBar();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PPTBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LTBar)).BeginInit();
@@ -84,6 +87,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.YBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CRadBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinLTBar)).BeginInit();
             this.SuspendLayout();
             // 
             // picDisplay
@@ -191,7 +195,7 @@ namespace Coursework
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1042, 199);
+            this.label6.Location = new System.Drawing.Point(1042, 305);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 19);
             this.label6.TabIndex = 10;
@@ -199,7 +203,7 @@ namespace Coursework
             // 
             // XBar1
             // 
-            this.XBar1.Location = new System.Drawing.Point(1042, 245);
+            this.XBar1.Location = new System.Drawing.Point(1042, 351);
             this.XBar1.Name = "XBar1";
             this.XBar1.Size = new System.Drawing.Size(209, 56);
             this.XBar1.TabIndex = 11;
@@ -208,7 +212,7 @@ namespace Coursework
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1042, 223);
+            this.label7.Location = new System.Drawing.Point(1042, 329);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(203, 19);
             this.label7.TabIndex = 12;
@@ -217,7 +221,7 @@ namespace Coursework
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1283, 223);
+            this.label8.Location = new System.Drawing.Point(1283, 329);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(202, 19);
             this.label8.TabIndex = 14;
@@ -225,7 +229,7 @@ namespace Coursework
             // 
             // YBar1
             // 
-            this.YBar1.Location = new System.Drawing.Point(1283, 245);
+            this.YBar1.Location = new System.Drawing.Point(1283, 351);
             this.YBar1.Name = "YBar1";
             this.YBar1.Size = new System.Drawing.Size(209, 56);
             this.YBar1.TabIndex = 13;
@@ -234,7 +238,7 @@ namespace Coursework
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1042, 282);
+            this.label9.Location = new System.Drawing.Point(1042, 388);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(150, 19);
             this.label9.TabIndex = 16;
@@ -242,7 +246,7 @@ namespace Coursework
             // 
             // RadBar1
             // 
-            this.RadBar1.Location = new System.Drawing.Point(1042, 304);
+            this.RadBar1.Location = new System.Drawing.Point(1042, 410);
             this.RadBar1.Maximum = 200;
             this.RadBar1.Minimum = 10;
             this.RadBar1.Name = "RadBar1";
@@ -253,7 +257,7 @@ namespace Coursework
             // 
             // ColorPick1
             // 
-            this.ColorPick1.Location = new System.Drawing.Point(1288, 282);
+            this.ColorPick1.Location = new System.Drawing.Point(1288, 388);
             this.ColorPick1.Name = "ColorPick1";
             this.ColorPick1.Size = new System.Drawing.Size(197, 78);
             this.ColorPick1.TabIndex = 17;
@@ -263,7 +267,7 @@ namespace Coursework
             // 
             // ColorPick2
             // 
-            this.ColorPick2.Location = new System.Drawing.Point(1288, 432);
+            this.ColorPick2.Location = new System.Drawing.Point(1288, 538);
             this.ColorPick2.Name = "ColorPick2";
             this.ColorPick2.Size = new System.Drawing.Size(197, 78);
             this.ColorPick2.TabIndex = 24;
@@ -274,7 +278,7 @@ namespace Coursework
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1042, 432);
+            this.label10.Location = new System.Drawing.Point(1042, 538);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(149, 19);
             this.label10.TabIndex = 23;
@@ -282,7 +286,7 @@ namespace Coursework
             // 
             // RadBar2
             // 
-            this.RadBar2.Location = new System.Drawing.Point(1042, 454);
+            this.RadBar2.Location = new System.Drawing.Point(1042, 560);
             this.RadBar2.Maximum = 200;
             this.RadBar2.Minimum = 10;
             this.RadBar2.Name = "RadBar2";
@@ -294,7 +298,7 @@ namespace Coursework
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1283, 373);
+            this.label11.Location = new System.Drawing.Point(1283, 479);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(201, 19);
             this.label11.TabIndex = 21;
@@ -302,7 +306,7 @@ namespace Coursework
             // 
             // YBar2
             // 
-            this.YBar2.Location = new System.Drawing.Point(1283, 395);
+            this.YBar2.Location = new System.Drawing.Point(1283, 501);
             this.YBar2.Name = "YBar2";
             this.YBar2.Size = new System.Drawing.Size(209, 56);
             this.YBar2.TabIndex = 20;
@@ -311,7 +315,7 @@ namespace Coursework
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1042, 373);
+            this.label12.Location = new System.Drawing.Point(1042, 479);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(202, 19);
             this.label12.TabIndex = 19;
@@ -319,7 +323,7 @@ namespace Coursework
             // 
             // XBar2
             // 
-            this.XBar2.Location = new System.Drawing.Point(1042, 395);
+            this.XBar2.Location = new System.Drawing.Point(1042, 501);
             this.XBar2.Name = "XBar2";
             this.XBar2.Size = new System.Drawing.Size(209, 56);
             this.XBar2.TabIndex = 18;
@@ -327,9 +331,9 @@ namespace Coursework
             // 
             // FirstColorPick
             // 
-            this.FirstColorPick.Location = new System.Drawing.Point(1288, 118);
+            this.FirstColorPick.Location = new System.Drawing.Point(1051, 202);
             this.FirstColorPick.Name = "FirstColorPick";
-            this.FirstColorPick.Size = new System.Drawing.Size(90, 78);
+            this.FirstColorPick.Size = new System.Drawing.Size(200, 78);
             this.FirstColorPick.TabIndex = 25;
             this.FirstColorPick.Text = "Выбор первого цвета";
             this.FirstColorPick.UseVisualStyleBackColor = true;
@@ -337,9 +341,9 @@ namespace Coursework
             // 
             // SecondColorPick
             // 
-            this.SecondColorPick.Location = new System.Drawing.Point(1394, 118);
+            this.SecondColorPick.Location = new System.Drawing.Point(1288, 202);
             this.SecondColorPick.Name = "SecondColorPick";
-            this.SecondColorPick.Size = new System.Drawing.Size(90, 78);
+            this.SecondColorPick.Size = new System.Drawing.Size(204, 78);
             this.SecondColorPick.TabIndex = 26;
             this.SecondColorPick.Text = "Выбор второго цвета";
             this.SecondColorPick.UseVisualStyleBackColor = true;
@@ -366,7 +370,7 @@ namespace Coursework
             // XLabel1
             // 
             this.XLabel1.AutoSize = true;
-            this.XLabel1.Location = new System.Drawing.Point(1244, 223);
+            this.XLabel1.Location = new System.Drawing.Point(1244, 329);
             this.XLabel1.Name = "XLabel1";
             this.XLabel1.Size = new System.Drawing.Size(33, 19);
             this.XLabel1.TabIndex = 29;
@@ -375,7 +379,7 @@ namespace Coursework
             // YLabel1
             // 
             this.YLabel1.AutoSize = true;
-            this.YLabel1.Location = new System.Drawing.Point(1479, 223);
+            this.YLabel1.Location = new System.Drawing.Point(1479, 329);
             this.YLabel1.Name = "YLabel1";
             this.YLabel1.Size = new System.Drawing.Size(33, 19);
             this.YLabel1.TabIndex = 30;
@@ -384,7 +388,7 @@ namespace Coursework
             // RadLabel1
             // 
             this.RadLabel1.AutoSize = true;
-            this.RadLabel1.Location = new System.Drawing.Point(1198, 282);
+            this.RadLabel1.Location = new System.Drawing.Point(1198, 388);
             this.RadLabel1.Name = "RadLabel1";
             this.RadLabel1.Size = new System.Drawing.Size(33, 19);
             this.RadLabel1.TabIndex = 31;
@@ -393,7 +397,7 @@ namespace Coursework
             // XLabel2
             // 
             this.XLabel2.AutoSize = true;
-            this.XLabel2.Location = new System.Drawing.Point(1244, 373);
+            this.XLabel2.Location = new System.Drawing.Point(1244, 479);
             this.XLabel2.Name = "XLabel2";
             this.XLabel2.Size = new System.Drawing.Size(33, 19);
             this.XLabel2.TabIndex = 32;
@@ -402,7 +406,7 @@ namespace Coursework
             // YLabel2
             // 
             this.YLabel2.AutoSize = true;
-            this.YLabel2.Location = new System.Drawing.Point(1479, 373);
+            this.YLabel2.Location = new System.Drawing.Point(1479, 479);
             this.YLabel2.Name = "YLabel2";
             this.YLabel2.Size = new System.Drawing.Size(33, 19);
             this.YLabel2.TabIndex = 33;
@@ -411,7 +415,7 @@ namespace Coursework
             // RadLabel2
             // 
             this.RadLabel2.AutoSize = true;
-            this.RadLabel2.Location = new System.Drawing.Point(1197, 432);
+            this.RadLabel2.Location = new System.Drawing.Point(1197, 538);
             this.RadLabel2.Name = "RadLabel2";
             this.RadLabel2.Size = new System.Drawing.Size(33, 19);
             this.RadLabel2.TabIndex = 34;
@@ -429,7 +433,7 @@ namespace Coursework
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1038, 528);
+            this.label13.Location = new System.Drawing.Point(1038, 634);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(226, 19);
             this.label13.TabIndex = 36;
@@ -438,7 +442,7 @@ namespace Coursework
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1038, 547);
+            this.label14.Location = new System.Drawing.Point(1038, 653);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(195, 19);
             this.label14.TabIndex = 37;
@@ -447,7 +451,7 @@ namespace Coursework
             // CRadLabel
             // 
             this.CRadLabel.AutoSize = true;
-            this.CRadLabel.Location = new System.Drawing.Point(1239, 547);
+            this.CRadLabel.Location = new System.Drawing.Point(1239, 653);
             this.CRadLabel.Name = "CRadLabel";
             this.CRadLabel.Size = new System.Drawing.Size(33, 19);
             this.CRadLabel.TabIndex = 38;
@@ -455,7 +459,7 @@ namespace Coursework
             // 
             // CRadBar
             // 
-            this.CRadBar.Location = new System.Drawing.Point(1046, 569);
+            this.CRadBar.Location = new System.Drawing.Point(1046, 675);
             this.CRadBar.Maximum = 200;
             this.CRadBar.Minimum = 2;
             this.CRadBar.Name = "CRadBar";
@@ -463,11 +467,43 @@ namespace Coursework
             this.CRadBar.TabIndex = 39;
             this.CRadBar.Value = 2;
             // 
+            // MinLTLabel
+            // 
+            this.MinLTLabel.AutoSize = true;
+            this.MinLTLabel.Location = new System.Drawing.Point(1499, 118);
+            this.MinLTLabel.Name = "MinLTLabel";
+            this.MinLTLabel.Size = new System.Drawing.Size(33, 19);
+            this.MinLTLabel.TabIndex = 42;
+            this.MinLTLabel.Text = "###";
+            // 
+            // MinLTBar
+            // 
+            this.MinLTBar.Location = new System.Drawing.Point(1283, 140);
+            this.MinLTBar.Maximum = 200;
+            this.MinLTBar.Minimum = 20;
+            this.MinLTBar.Name = "MinLTBar";
+            this.MinLTBar.Size = new System.Drawing.Size(209, 56);
+            this.MinLTBar.TabIndex = 41;
+            this.MinLTBar.Value = 20;
+            this.MinLTBar.Scroll += new System.EventHandler(this.MinLTBar_Scroll);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1283, 118);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(219, 19);
+            this.label16.TabIndex = 40;
+            this.label16.Text = "Min Продолжительность жизни:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1539, 741);
+            this.Controls.Add(this.MinLTLabel);
+            this.Controls.Add(this.MinLTBar);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.CRadBar);
             this.Controls.Add(this.CRadLabel);
             this.Controls.Add(this.label14);
@@ -524,6 +560,7 @@ namespace Coursework
             ((System.ComponentModel.ISupportInitialize)(this.YBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CRadBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinLTBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -573,6 +610,9 @@ namespace Coursework
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label CRadLabel;
         private System.Windows.Forms.TrackBar CRadBar;
+        private System.Windows.Forms.Label MinLTLabel;
+        private System.Windows.Forms.TrackBar MinLTBar;
+        private System.Windows.Forms.Label label16;
     }
 }
 

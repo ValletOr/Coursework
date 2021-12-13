@@ -60,6 +60,7 @@ namespace Coursework
             RadBar2.Value = (int)paint2.Rad;
             PPTBar.Value = emitter.ParticlesPerTick;
             LTBar.Value = emitter.LifeMax;
+            MinLTBar.Value = emitter.LifeMin;
             GBar.Value = (int)(emitter.GravityY * 10);
             CRadBar.Value = 50;
         }
@@ -92,6 +93,7 @@ namespace Coursework
             CounterLabel.Text = emitter.particles.Count(particle => particle.Life > 0).ToString();
             PPTLabel.Text = PPTBar.Value.ToString();
             LTLabel.Text = LTBar.Value.ToString();
+            MinLTLabel.Text = MinLTBar.Value.ToString();
             GLabel.Text = (GBar.Value / 10f).ToString();
             XLabel1.Text = XBar1.Value.ToString();
             YLabel1.Text = YBar1.Value.ToString();
@@ -152,6 +154,8 @@ namespace Coursework
         private void LTBar_Scroll(object sender, EventArgs e)
         {
             emitter.LifeMax = LTBar.Value;
+            MinLTBar.Maximum = LTBar.Value;
+            LTBar.Minimum = MinLTBar.Value;
         }
 
         private void GBar_Scroll(object sender, EventArgs e)
@@ -199,6 +203,13 @@ namespace Coursework
                     }
                 }
             }
+        }
+
+        private void MinLTBar_Scroll(object sender, EventArgs e)
+        {
+            emitter.LifeMin = MinLTBar.Value;
+            MinLTBar.Maximum = LTBar.Value;
+            LTBar.Minimum = MinLTBar.Value;
         }
     }
 }
