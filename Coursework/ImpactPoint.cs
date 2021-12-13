@@ -67,10 +67,12 @@ namespace Coursework
 
         public override void ImpactParticle(Particle particle)
         {
+            //Проверка попадания частицы в радиус круга
             float gX = X - particle.X;
             float gY = Y - particle.Y;
 
             double r = Math.Sqrt(gX * gX + gY * gY);
+
             if (r - particle.Radius < Rad)
             {
                 particle.Color1 = PointColor;
@@ -92,10 +94,12 @@ namespace Coursework
 
         public override void ImpactParticle(Particle particle)
         {
+            //Проверка попадания частицы в радиус круга
             float gX = X - particle.X;
             float gY = Y - particle.Y;
 
             double r = Math.Sqrt(gX * gX + gY * gY);
+
             if (r - particle.Radius < Rad)
             {
                 particle.Life = 0;

@@ -10,6 +10,7 @@ namespace Coursework
     //Я избавился от класса ColorfulParticle ради удобства работы с перекрашивающим кругом
     public class Particle
     {
+        //Базовые характеристики частицы
         public float X;
         public float Y;
 
@@ -35,6 +36,7 @@ namespace Coursework
             Life = 20 + rand.Next(100);
         }
 
+        //Расчёт промежуточных цветов частицы
         public static Color MixColor(Color color1, Color color0, float k)
         {
             return Color.FromArgb(
@@ -47,7 +49,7 @@ namespace Coursework
 
         public virtual void Draw(Graphics g)
         {
-            float k = Math.Min(1f, Life / 100f);
+            float k = Math.Min(1f, Life / 100f); //Коэффицент прозрачности частицы
 
             var color = MixColor(Color0, Color1, k);
             var b = new SolidBrush(color);

@@ -119,9 +119,11 @@ namespace Coursework
         }
     }
 
+    //Верхний или широкий эмиттер
     public class WideEmitter : Emitter
     {
-        public int Width = 1;
+        //Параметры наследуются от обычного эмиттера
+        public int Width = 1;//Ширина эмиттера, обычно выставляется ширина pictureBox'а
 
         public override void ResetParticle(Particle particle)
         {
